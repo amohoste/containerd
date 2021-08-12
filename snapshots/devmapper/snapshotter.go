@@ -106,7 +106,7 @@ func (s *Snapshotter) Stat(ctx context.Context, key string) (snapshots.Info, err
 	)
 
 	err = s.withTransaction(ctx, false, func(ctx context.Context) error {
-		id, info, _, err := storage.GetInfo(ctx, key)
+		_, info, _, err := storage.GetInfo(ctx, key)
 		info.SnapshotId = "test"
 		return err
 	})
