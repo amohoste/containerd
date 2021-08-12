@@ -525,6 +525,7 @@ func readSnapshot(bkt *bolt.Bucket, id *uint64, si *snapshots.Info) error {
 	if si != nil {
 		si.Kind = readKind(bkt)
 		si.Parent = string(bkt.Get(bucketKeyParent))
+		si.SnapshotId = fmt.Sprintf("%d", readID(bkt))
 
 		if err := boltutil.ReadTimestamps(bkt, &si.Created, &si.Updated); err != nil {
 			return err
