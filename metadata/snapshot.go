@@ -138,7 +138,6 @@ func (s *snapshotter) Stat(ctx context.Context, key string) (snapshots.Info, err
 	if err != nil {
 		return snapshots.Info{}, err
 	}
-	info.SnapshotId = "metadata"
 
 	return overlayInfo(info, local), nil
 }
