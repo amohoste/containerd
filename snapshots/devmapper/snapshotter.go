@@ -112,6 +112,14 @@ func (s *Snapshotter) Stat(ctx context.Context, key string) (snapshots.Info, err
 		return err
 	})
 
+	// Replace snapshot id with snapshot device id
+	if err == nil {
+		deviceName := s.getDeviceName(info.SnapshotId)
+		var devInfo *DeviceInfo
+		devInfo, err = s.pool.metadata.GetDevice(ctx, deviceName)
+		info.SnapshotId = fmt.Sprintf("%d", devInfo.DeviceID)
+	}
+
 	return info, err
 }
 
