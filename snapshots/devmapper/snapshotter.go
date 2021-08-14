@@ -117,7 +117,7 @@ func (s *Snapshotter) Stat(ctx context.Context, key string) (snapshots.Info, err
 		deviceName := s.getDeviceName(info.SnapshotId)
 		var devInfo *DeviceInfo
 		devInfo, err = s.pool.metadata.GetDevice(ctx, deviceName)
-		info.SnapshotId = fmt.Sprintf("%d", devInfo.DeviceID)
+		info.SnapshotDev = fmt.Sprintf("%d", devInfo.DeviceID)
 	}
 
 	return info, err

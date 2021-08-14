@@ -195,6 +195,7 @@ func fromInfo(info snapshots.Info) snapshotsapi.Info {
 		UpdatedAt: info.Updated,
 		Labels:    info.Labels,
 		SnapshotID: info.SnapshotId,
+		SnapshotDev: info.SnapshotDev,
 	}
 }
 
@@ -219,6 +220,7 @@ func toInfo(info snapshotsapi.Info) snapshots.Info {
 		Updated: info.UpdatedAt,
 		Labels:  info.Labels,
 		SnapshotId: info.SnapshotID,
+		SnapshotDev: info.SnapshotDev,
 	}
 }
 
