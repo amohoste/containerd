@@ -51,7 +51,9 @@ func (p *proxySnapshotter) Stat(ctx context.Context, key string) (snapshots.Info
 	if err != nil {
 		return snapshots.Info{}, errdefs.FromGRPC(err)
 	}
-	return toInfo(resp.Info), nil
+	info := toInfo(resp.Info)
+	info.SnapshotId = "proxy"
+	return info, nil
 }
 
 func (p *proxySnapshotter) Update(ctx context.Context, info snapshots.Info, fieldpaths ...string) (snapshots.Info, error) {
