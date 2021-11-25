@@ -114,17 +114,19 @@ message Info {
 	string name = 1;
 	string parent = 2;
 	Kind kind = 3;
+	string snapshot_id = 4;
+	string snapshot_dev = 5;
 
 	// CreatedAt provides the time at which the snapshot was created.
-	google.protobuf.Timestamp created_at = 4 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+	google.protobuf.Timestamp created_at = 6 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
 
 	// UpdatedAt provides the time the info was last updated.
-	google.protobuf.Timestamp updated_at = 5 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+	google.protobuf.Timestamp updated_at = 7 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
 
 	// Labels are arbitrary data on snapshots.
 	//
 	// The combined size of a key/value pair cannot exceed 4096 bytes.
-	map<string, string> labels  = 6;
+	map<string, string> labels  = 8;
 }
 
 message StatSnapshotResponse {

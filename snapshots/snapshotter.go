@@ -98,6 +98,8 @@ func (k *Kind) UnmarshalJSON(b []byte) error {
 type Info struct {
 	Kind   Kind   // active or committed snapshot
 	Name   string // name or key of snapshot
+	SnapshotId string // Id of snapshot
+	SnapshotDev string // Id of snapshot device
 	Parent string `json:",omitempty"` // name of parent snapshot
 
 	// Labels for a snapshot.

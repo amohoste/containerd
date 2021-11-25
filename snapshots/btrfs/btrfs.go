@@ -108,7 +108,6 @@ func (b *snapshotter) Stat(ctx context.Context, key string) (snapshots.Info, err
 	if err != nil {
 		return snapshots.Info{}, err
 	}
-
 	return info, nil
 }
 
